@@ -7,3 +7,7 @@ def info(String message) {
 def warning(message) {
     echo "WARNING: ${message}"
 }
+
+def getEnviroment(Boolean deployToProduction) {
+  return deployToProduction ? 'production' : 'staging'
+}

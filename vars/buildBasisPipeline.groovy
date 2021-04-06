@@ -1,6 +1,6 @@
 import org.proenza.Utils;
 
-def call() {
+def call(Boolean deployToProduction) {
     def utils = new Utils();
 
     pipeline {
@@ -26,6 +26,9 @@ def call() {
                     script {
                         utils.info('Deploying app...')
                     }
+                    sh """
+                        echo Deployment enviroment: ${utils.getEnviroment(deployToProduction)}
+                    """
                 }
             }
         }

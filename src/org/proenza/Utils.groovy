@@ -11,3 +11,7 @@ def warning(message) {
 def getEnviroment(Boolean deployToProduction) {
   return deployToProduction ? 'production' : 'staging'
 }
+
+def getBuildScript(Boolean isTypescript) {
+    isTypescript ? sh 'echo "Build TS"' : sh 'echo "Build JS"'
+}

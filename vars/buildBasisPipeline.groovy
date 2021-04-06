@@ -1,6 +1,6 @@
 import org.proenza.Utils;
 
-def call(Boolean deployToProduction) {
+def call(Boolean deployToProduction, Boolean isTypescript) {
     def utils = new Utils();
 
     pipeline {
@@ -29,6 +29,9 @@ def call(Boolean deployToProduction) {
                     sh """
                         echo Deployment enviroment: ${utils.getEnviroment(deployToProduction)}
                     """
+                    script {
+                        utils.getBuildScript(isTypescript)
+                    }
                 }
             }
         }

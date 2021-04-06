@@ -1,8 +1,8 @@
 import org.proenza.Utils;
 
-def utils = new Utils();
-
 def call() {
+    def utils = new Utils();
+
     pipeline {
         agent any
 

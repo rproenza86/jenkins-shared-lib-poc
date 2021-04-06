@@ -12,6 +12,14 @@ def getEnviroment(Boolean deployToProduction) {
   return deployToProduction ? 'production' : 'staging'
 }
 
+def buildTypescript() {
+    sh 'echo "Build TS"'
+}
+
+def buildJavascript() {
+    sh 'echo "Build JS"'
+}
+
 def getBuildScript(Boolean isTypescript) {
-    isTypescript ? sh 'echo "Build TS"' : sh 'echo "Build JS"'
+    isTypescript ? buildTypescript() : buildJavascript()
 }

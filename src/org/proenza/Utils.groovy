@@ -23,3 +23,18 @@ def buildJavascript() {
 def getBuildScript(Boolean isTypescript) {
     isTypescript ? buildTypescript() : buildJavascript()
 }
+
+def getPrepackageStage(){
+    stage('App Prepackage') {
+        agent any
+        steps {
+            sh """
+                echo "Prepackaging app..."
+            """
+        }
+    }
+}
+
+def getTsPackageState(Boolean isTypescript) {
+    isTypescript ? getPrepackageStage() : null
+}

@@ -21,6 +21,7 @@ def call(Boolean deployToProduction, Boolean isTypescript) {
                     }
                 }
             }
+            utils.getPrepackageStage(isTypescript)
             stage('Deploy') {
                 steps {
                     script {

@@ -9,17 +9,23 @@ def call() {
         stages {
             stage('Build') {
                 steps {
-                    utils.info('Building app...')
+                    script {
+                        utils.info('Building app...')
+                    }
                 }
             }
             stage('Test') {
                 steps {
-                    utils.info('Testing app...')
+                    script {
+                        utils.info('Testing app...')
+                    }
                 }
             }
             stage('Deploy') {
                 steps {
-                    utils.info('Deploying app...')
+                    script {
+                        utils.info('Deploying app...')
+                    }
                 }
             }
         }

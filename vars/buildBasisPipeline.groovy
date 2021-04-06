@@ -21,7 +21,20 @@ def call(Boolean deployToProduction, Boolean isTypescript) {
                     }
                 }
             }
-            utils.getPrepackageStage(isTypescript)
+            stage('App Prepackage') {
+                when {
+                    expression {
+                        return isTypescript
+                    }
+                }
+                steps {
+                    script {
+                        sh """
+                            echo "Prepackaging app..."
+                        """
+                    }
+                }
+            }
             stage('Deploy') {
                 steps {
                     script {
